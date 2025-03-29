@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .choose {
+      background-color: gray;
+      cursor: pointer;
+      color: black;
+      padding: 10px;
+    }
+    .create {
+      background-color: green;
+      cursor: pointer;
+      border: none;
+      padding: 10px;
+    }
+    option {
+      color: white;
+      background-color: black;
+      
+    }
+    .text {
+      max-width: 60%;
+      max-height: 500px;
+      height: 350px;
+      width: 50%;
+      background: linear-gradient(
+        to top left,
+        red,
+        yellow,
+        green
+      );
+      color: black;
+      font-family: arial;
+      font-size: large;
+      padding-top: 10px;
+      padding-left: 10px;
+    }
+    .format {
+      position: relative;
+      background-color: rgb(0, 0, 0);
+      width: 6cm;
+      height: 9.7cm;
+      top: -10.2cm;
+      left: 10cm;
+      color: white;
+      /* font-family: ; */
+      padding-left: 10px;
+    }
+    .delete {
+      background-color: red;
+      cursor: pointer;
+      border: none;
+      padding: 10px;
+    }
+    .bold {
+      background-color: blue;
+      /* position: relative; */
+      /* top: -19.6cm; */
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      margin-top: 10px;
+      margin-left: 10px;
+      left: 10.3cm;
+    }
+    select {
+      background-color: black;
+      color: white;
+    }
+    .bolder {
+      font-weight: bold;
+    }
+    .font {
+      background-color: red;
+      border: none;
+      margin-left: 6px;
+      cursor: pointer;
+      /* max-width: 40px; */
+    }
+    .siz {
+      background-color: yellow;
+      border: none;
+      margin-left: 6px;
+      cursor: pointer;
+      margin-right: 7px;
+      margin-top: 10px;
+    }
+    .print {
+      background-color: aqua;
+      color: black;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  Text File: <select class="choose"></select>
+   <button class="create">Add</button>
+
+   <p>
+<textarea class="text" autofocus></textarea>
+
+<div class="format" title="Formating tab">
+  Formating tab
+<p></p><button class="bold" onclick="boldText()" ondblclick="removebold()">Bold</button>
+<button class="bold" onclick="italic()" ondblclick="ritalic()">Italic</button>
+<button class="bold" onclick="under()" ondblclick="runder()">Underline</button><p>
+<!-- Font family: <select name="selected" id="select"> -->
+  Font family</p>
+  <button value="Arial" class="font" selected onclick="arial()">Arial</button></p>
+
+  <button value="Times" class="font" onclick="tnr()">Times New Roman</button>
+  <button value="Cursice" class="font" onclick="nelson()">Cursive</button>
+<p>
+  <button class="font" onclick="sns()">San Serif</button> 
+    <button class="font" onclick="serif()">Monospace</button>
+  </p>
+
+  <p>
+    Font size
+    </p>
+    <button class="siz" onclick="exsmall()">Smaller</button>
+    <button class="siz" onclick="small()">Small</button>
+    <button class="siz" onclick="medium()">Medium</button>
+    <button class="siz" onclick="large()">Large</button>
+    <button class="siz" onclick="exlarge()">Larger</button>
+  </p>
+
+
+</div>
+
+
+<script>
+let list = document.querySelector("select");
+let note = document.querySelector("textarea");
+let state;
+function setState(newState) {
+list.textContent = "";
+for (let name of Object.keys(newState.notes)) {
+let option = document.createElement("option");
+option.textContent = name;
+if (newState.selected == name) option.selected = true;
+list.appendChild(option);
+}
+note.value = newState.notes[newState.selected];
+localStorage.setItem("Notes", JSON.stringify(newState));
+state = newState;
+}
+setState(JSON.parse(localStorage.getItem("Notes")));
+list.addEventListener("change", () => {
+setState({notes: state.notes, selected: list.value});
+});
+note.addEventListener("change", () => {
+setState({
+notes: Object.assign({}, state.notes,
+{[state.selected]: note.value}),
+selected: state.selected
+});
+});
+document.querySelector("button")
+.addEventListener("click", () => {
+let name = prompt("Text File name");
+if (name) setState({
+  notes: Object.assign({}, state.notes, {[name]: ""}),
+selected: 'name'
+
+});
+confirm('Are You sure You want to create a new file')
+});
+
+function boldText() {
+  document.querySelector('textarea').style.fontWeight = 'bold'
+}
+function removebold() {
+  document.querySelector('textarea').style.fontWeight = '100'
+}
+function italic() {
+  document.querySelector('textarea').style.fontStyle = 'italic'
+}
+function ritalic() {
+  document.querySelector('textarea').style.fontStyle = 'normal'
+}
+function under() {
+  document.querySelector('textarea').style.textDecoration = 'Underline'
+}
+
+function runder() {
+  document.querySelector('textarea').style.textDecoration = 'none'
+}
+function arial() {
+  document.querySelector('textarea').style.fontFamily = 'Arial'
+}
+function tnr() {
+  document.querySelector('textarea').style.fontFamily = 'Times New Roman'
+}
+function nelson() {
+  document.querySelector('textarea').style.fontFamily = 'Cursive'
+}
+function sns() {
+  document.querySelector('textarea').style.fontFamily = 'San serif'
+}
+function serif() {
+  document.querySelector('textarea').style.fontFamily = 'Monospace'
+}
+// function deletefile() {
+//   document.querySelector('textarea').remove()
+// }
+function exsmall() {
+  document.querySelector('textarea').style.fontSize = 'smaller'
+}
+function small() {
+  document.querySelector('textarea').style.fontSize = '15px'
+}
+function medium() {
+  document.querySelector('textarea').style.fontSize = 'medium'
+}
+function large() {
+document.querySelector('textarea').style.fontSize = 'large'
+};
+function exlarge() {
+  document.querySelector('textarea').style.fontSize = '30px'
+}
+function printPage() {
+  let data = document.querySelector('textarea').value
+  print(data);
+}
+// localStorage.removeItem("Notes")
+</script>
+</body>
+</html>
