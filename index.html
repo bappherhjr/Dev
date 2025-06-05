@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DevImage</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #000;
+      background: #fff;
+      cursor: crosshair;
+    }
+    .controls {
+      margin: 10px 0;
+    }
+    .controls > * {
+      margin: 5px;
+    }
+    input[type="color"], input[type="range"], select {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DevImage</h1>
+
+  <div class="controls">
+    <label>Brush Color: <input type="color" id="colorPicker" value="#000000"></label>
+    <label>Brush Size: <input type="range" id="brushSize" min="1" max="50" value="5"></label>
+    <label>Tool:
+      <select id="tool">
+        <option value="brush">Brush</option>
+        <option value="eraser">Eraser</option>
+        <option value="line">Line</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="circle">Circle</option>
+        <option value="text">Text</option>
+      </select>
+    </label>
+    <input type="text" id="textInput" placeholder="Text here" style="display:none;">
+    <input type="file" id="bgUpload" accept="image/*">
+    <button onclick="undo()">Undo</button>
+    <button onclick="redo()">Redo</button>
+    <button onclick="clearCanvas()">Clear</button>
+    <button onclick="downloadImage()">Download</button>
+  </div>
+
+  <canvas id="canvas" width="900" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const colorPicker = document.getElementById('colorPicker');
+    const brushSize = document.getElementById('brushSize');
+    const toolSelect = document.getElementById('tool');
+    const textInput = document.getElementById('textInput');
+    const bgUpload = document.getElementById('bgUpload');
+
+    let painting = false;
+    let startX = 0, startY = 0;
+    let history = [];
+    let redoStack = [];
+
+    function saveState() {
+      history.push(canvas.toDataURL());
+      redoStack = [];
+    }
+
+    function undo() {
+      if (history.length > 0) {
+        redoStack.push(canvas.toDataURL());
+        let img = new Image();
+        img.src = history.pop();
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+        };
+      }
+    }
+    document.addEventListener('keydown', (e) => {
+      console.log(e.key)
+      if(e.key === 'Control' + 'z') {
+        undo();
+      }
+    })
+
+    function redo() {
+      if (redoStack.length > 0) {
+        history.push(canvas.toDataURL());
+        let img = new Image();
+        img.src = redoStack.pop();
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+        };
+      }
+    }
+
+    toolSelect.addEventListener('change', () => {
+      textInput.style.display = toolSelect.value === 'text' ? 'inline-block' : 'none';
+    });
+
+    canvas.addEventListener('mousedown', (e) => {
+      painting = true;
+      [startX, startY] = getMousePos(e);
+      if (toolSelect.value === 'text') {
+        drawText(startX, startY);
+        saveState();
+      } else if (toolSelect.value === 'brush' || toolSelect.value === 'eraser') {
+        draw(e);
+      }
+    });
+
+    canvas.addEventListener('mouseup', (e) => {
+      if (painting && ['line', 'rectangle', 'circle'].includes(toolSelect.value)) {
+        drawShape(e);
+      }
+      painting = false;
+      ctx.beginPath();
+      saveState();
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!painting) return;
+      if (toolSelect.value === 'brush' || toolSelect.value === 'eraser') {
+        draw(e);
+      }
+    });
+
+    function getMousePos(e) {
+      const rect = canvas.getBoundingClientRect();
+      return [e.clientX - rect.left, e.clientY - rect.top];
+    }
+
+    function draw(e) {
+      const [x, y] = getMousePos(e);
+      ctx.lineWidth = brushSize.value;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = toolSelect.value === 'eraser' ? '#fff' : colorPicker.value;
+
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+    }
+
+    function drawShape(e) {
+      const [x, y] = getMousePos(e);
+      const width = x - startX;
+      const height = y - startY;
+
+      ctx.beginPath();
+      ctx.lineWidth = brushSize.value;
+      ctx.strokeStyle = colorPicker.value;
+
+      if (toolSelect.value === 'line') {
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      } else if (toolSelect.value === 'rectangle') {
+        ctx.strokeRect(startX, startY, width, height);
+      } else if (toolSelect.value === 'circle') {
+        ctx.ellipse(startX + width / 2, startY + height / 2, Math.abs(width / 2), Math.abs(height / 2), 0, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+    }
+
+    function drawText(x, y) {
+      const text = textInput.value;
+      if (text.trim() === '') return;
+      ctx.fillStyle = colorPicker.value;
+      ctx.font = `${brushSize.value * 4}px sans-serif`;
+      ctx.fillText(text, x, y);
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      saveState();
+    }
+
+    function downloadImage() {
+      const link = document.createElement('a');
+      link.download = 'picture.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+
+    bgUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const bgImage = new Image();
+        bgImage.src = evt.target.result;
+        bgImage.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+          saveState();
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Initialize canvas state
+    saveState();
+  </script>
+
+</body>
+</html>
