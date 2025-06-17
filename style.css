@@ -1,0 +1,113 @@
+   /* same styles as before for consistency */
+    :root {
+      --primary: #3498db;
+      --success: #2ecc71;
+      --danger: #e74c3c;
+      --dark-bg: #1e1e1e;
+      --light-bg: #fdfdfd;
+      --text-dark: #222;
+      --text-light: #f9f9f9;
+      --dark-cont: #2b2b2b;
+    }
+
+    body {
+      font-family: Arial;
+      background: var(--dark-bg);
+      color: var(--text-dark);
+      transition: 0.3s;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    body.dark .container {
+      background: var(--dark-bg);
+      color: var(--text-light);
+    }
+
+    .container {
+      max-width: 600px;
+      color: var(--light-bg);
+      margin: auto;
+      background: var(--dark-cont);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    body.dark .container {
+      background: #2b2b2b;
+    }
+
+    h1 { text-align: center; }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
+
+    .progress {
+      height: 10px;
+      background: #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      /* display: inline; */
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .question { margin: 1.5rem 0 1rem; font-size: 1.2rem; }
+
+    .answers button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .answers button.correct { background: var(--success) !important; }
+    .answers button.wrong { background: var(--danger) !important; }
+    .answers button:disabled { opacity: 0.8; cursor: default; }
+
+    .feedback { min-height: 1.5rem; font-weight: bold; }
+
+    .result {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    #restartBtn {
+      margin: 1.5rem auto;
+      display: block;
+      background: var(--success);
+    }
+
+    .toggle-dark {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #444;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button {
+      border: none;
+      padding: 15px;
+      font-size: larger;
+      cursor: pointer;
+    }

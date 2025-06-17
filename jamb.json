@@ -1,0 +1,403 @@
+[
+  {
+    "question": "What are enzymes?",
+    "choices": [
+      "Organic catalyst that control the rate of biochemical reaction in the body of an organism",
+      "Unknown inorganic catalyst",
+      "Semi-organic catalyst that regulate the temperature of an organism",
+      "None "
+    ],
+    "answer": "Organic catalyst that control the rate of biochemical reaction in the body of an organism"
+  },
+  {
+    "question": "Boyle's law states that___",
+    "choices":[ 
+      "Boyle's Law states that the pressure of a given mass of gas at a constant temperature is inversely proporotional to its volume.",
+      "Boyle's Law states that the temperature of a given mass of gas at a constant pressure is inversely proporotional to its volume.",
+      "Boyle's Law states that the volume of a given mass of gas at a constant pressure is directly proporotional to its volume.",
+      "Boyle's law states that 2 mass of gas at the same temperature have the same pressure"
+  ],
+  "answer": "Boyle's Law states that the pressure of a given mass of gas at a constant temperature is inversely proporotional to its volume."
+  },
+  {
+    "question": "Protozoa excretes__",
+    "choices": [
+      "Urea",
+      "Carbon dioxide, Water and Ammonia",
+      "Mecury, Ammonia, Vandanium and Oxygen",
+      "Only Oxygen"
+    ],
+    "answer": "Carbon dioxide, Water and Ammonia"
+  },
+  {
+    "question": "Find the median and mode from the data: 78, 79,79, 80, 80, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 82, 82, 82, 83, 83, 83, 90",
+    "choices":[
+      "Median = 81 and Mode = 80",
+      "Median = 81 and Mode = 81",
+      "Median = 90 and Mode = 83",
+      "Median = 78 and Mode = 80"
+    ],
+    "answer": "Median = 81 and Mode = 80"
+  },
+  {
+    "question": "What are Positive Catalysts?",
+    "choices":[
+      "Catalysts which increases the rate of a reaction",
+      "Catalysts which decreases the rate of a reaction",
+      "Catalysts that make all the reactants posively charged",
+      "Catalysts that make all the reactants negatively charged"
+    ],
+    "answer": "Catalysts which increases the rate of a reaction"
+  },
+  {
+    "question": "The mathematical expression of Boyle's Law is:",
+    "choices":[
+      "P1V1 = P2V2",
+      "m1V1 = m2V2",
+      "T1V1 = T2V2",
+      "P1T1 = 2P1"
+    ],
+    "answer": "P1V1 = P2V2"
+  }, {
+    "question": "What are the organs responsible for excretion in insect?",
+    "choices":[
+      "Contractile Vacuole",
+      "Flame cells",
+      "Malphighian Tubules",
+      "Green Gland"
+    ],
+    "answer": "Malphighian Tubules"
+  },
+  {
+    "question":"Find the range of: 79, 60, 52, 34, 58, 60",
+    "choices":[
+      "45",
+      "44",
+      "50",
+      "40"
+    ],
+    "answer": "45"
+  }, 
+  {
+    "question": "What is a Reversible Reaction?",
+    "choices":[
+      "It is a chemmical reaction which can be made to proceed in either directions under suitable conditions." ,
+      "It is a reaction that never comes back regardless of conditions.",
+      "A reaction with catalyst",
+      "A Reaction that takes alot of time before being completed"
+    ],
+    "answer": "It is a chemmical reaction which can be made to proceed in either directions under suitable conditions."
+  },
+  {
+    "question": "State general gas law",
+    "choices": [
+      "A combination of Boyle's and charle's law into one single expresssion.",
+      "A combination of Boyle's, charle's and pressure law into one single expresssion.",
+      "A combination of Boyle's, charle's, Grahams and Gay Lussac's law into one single expresssion.",
+      "A manipulation of Boyle's Law"
+    ],
+    "answer": "A combination of Boyle's, charle's and pressure law into one single expresssion."
+  },
+  {
+    "question": "What is the other name of Urinary Tubule?",
+    "choices": [
+      "Nephron",
+      "Nephridia",
+      "Nephrosome",
+      "Chromosome"
+    ],
+    "answer": "Nephron"
+  },
+  {
+    "question": "What is a Tangent?",
+    "choices": [
+      "A line that touches the angle of a quadrilateral  shape",
+      "A line that touches the circumference of a circle",
+      "A line that is drawn like a diamenter",
+      "Another name for radius"
+    ],
+    "answer": "A line that touches the circumference of a circle"
+
+  },
+  {
+    "question": "What is a combustion reaction?",
+    "choices": [
+      "A reaction that emmits unpleasent smell upon reacting.",
+      "A substance that reacts with Oxygen releasing light and heat.",
+      "A Reaction that takes alot of time before being completed",
+      "It is a reaction that never comes back regardless of conditions."
+    ],
+    "answer": "A substance that reacts with Oxygen releasing light and heat."
+  },
+  {
+    "question": "Define Waves",
+    "choices": [
+      "A wave is a disturbance which travels from one point to another and transfer energy without any permanent displacement of the medium itself",
+
+      "A wave is  travels from one point to another and transfer energy causing permanent displacement to the medium",
+
+      "A wave is a disturbance which travels from one point to another and transfer energy without any permanent displacement",
+
+      "A wave is a disturbance which travels from one point to another and does not transfer energy without any permanent displacement of the medium itself"
+    ],
+    "answer": "A wave is a disturbance which travels from one point to another and transfer energy without any permanent displacement of the medium itself"
+  }, {
+    "question": "What is Oxygen Cycle?",
+    "choices": [
+      "It is the movement of oxygen through the atmosphere, living organism and the earth.",
+
+      "It is the movement of oxygen-compounds through the atmosphere, living organism and the earth.",
+
+      "It is the movement of Carbon through the atmosphere, living organism and the earth.",
+
+      "It is the movement of Nitrogen through the atmosphere, living organism and the earth."
+    ],
+    "answer": "It is the movement of oxygen through the atmosphere, living organism and the earth."
+  }, {
+    "question":"Calculate the mean of the following raw data: 176, 174, 178, 181, 174, 175, 179, 180, 177, 182",
+    "choices":[
+      "Approximately 178",
+      "177",
+      "179",
+      "180"
+    ],
+    "answer":"Approximately 178"
+  },
+  {
+    "question":"What are the types of Catalyst?",
+    "choices":[
+      "Inorganic and Organic",
+      "Positive and Negative",
+      "Homogenous and Heteregenous",
+      "Enzymes"
+    ],
+    "answer":"Inorganic and Organic"
+  },
+  {
+    "question":"Define Mechanical Wave",
+    "choices":[
+      "These are waves that require a medium to propagate.",
+      "These are waves that do not require a material medium for their propagation",
+      "These are waves dealt by Mechanics",
+      "None of the above"
+    ],
+    "answer":"These are waves that require a medium to propagate."
+  },
+  {
+    "question": "Examples of Macro Decomposers include the following except",
+    "choices":[
+      "Earthworm",
+      "Termite",
+      "Beetles",
+      "Fungi"
+    ],
+    "answer": "Fungi"
+  }
+
+  ,
+
+  {
+    "question":"What are the types of Catalytic reactions?",
+    "choices":[
+      "Inorganic and Organic",
+      "Positive and Negative",
+      "Homogenous and Heteregenous",
+      "Enzymes"
+    ],
+    "answer":"Homogenous and Heteregenous"
+  },
+  {
+    "question": "What is Amplitude?",
+    "choices": [
+      "Maximum Displacement of the particles of a wave from rest position.",
+      "Difference between two successive Crests.",
+      "Time Taken by the paricle of a wave to perform one complete cycle.",
+      "Number of cycles in one second."
+    ],
+    "answer": "Maximum Displacement of the particles of a wave from rest position."
+  }, {
+    "question":"What is Tolerance?",
+    "choices":[
+      "The ability, willingness, or capacity to tolerate something.",
+      "Ability ofliving organism to withstand unfavourable changes in the environment.",
+      "The biologicat act of leaving a person when he disturbs you.",
+      "The ability to tolerate changes."
+    ],
+    "answer":"Ability ofliving organism to withstand unfavourable changes in the environment."
+  }
+
+  ,
+
+  {
+    "question":"The Chemical Formula is for Sulphiric Acid?",
+    "choices":[
+      "H2SO4",
+      "HCL",
+      "H2PO4",
+      "None"
+    ],
+    "answer":"H2SO4"
+  }, {
+    "question":"What is Reflection?",
+    "choices":[
+      "Change in direction of waves when they hit an obstacle",
+      "Two media when a the propagating direction of the wave changes when it enters another medium.",
+      "Change in direction of wavelength when it hit an obstacle",
+      "None"
+    ],
+    "answer":"Change in direction of waves when they hit an obstacle"
+  },
+  {
+    "question": "What are Negative Catalysts?",
+    "choices": [
+      "Catalysts which increases the rate of a reaction",
+      "Catalysts which decreases the rate of a reaction",
+      "Catalysts that make all the reactants posively charged",
+      "Catalysts that make all the reactants negatively charged"
+    ],
+    "answer": "Catalysts which decreases the rate of a reaction"
+  }, {
+    "question":"Mammalian heart consist of _____ auricles",
+    "choices":[
+      "Four",
+      "Nine",
+      "Three",
+      "Zero"
+    ],
+    "answer":"Four"
+  }, {
+    "question":"what is the correct value of  pi?",
+    "choices":[
+      "3.141592653589793",
+      "3.141592653589791",
+      "3.141592653589792",
+      "3.141592653589794"
+    ],
+    "answer":"3.141592653589793"
+  },
+  {
+    "question": "Solve the equation: tan y = cot(y + 20\u00b0)",
+    "choices":[
+      "y = 35\u00b0",
+      "y = 23\u00b0",
+      "y = 33\u00b0",
+      "y = 34\u00b0"
+    ],
+    "answer": "y = 35\u00b0"
+  }, {
+    "question": "Euglena moves by the",
+    "choices":[
+      "whipping its flagellum",
+      "beating its cillia",
+      "pushing out a jet of water from an organelle",
+      "None"
+    ],
+    "answer": "whipping its flagellum"
+  }, {
+    "question": "Fruits are formed from",
+    "choices":[
+      "Ovary",
+      "Ovum",
+      "Sperm",
+      "Testes"
+    ],
+    "answer": "Ovary"
+  }, {
+    "question": "All of the below are the reasons for overcrowding except:",
+    "choices":[
+      "Lack of Predators",
+      "Natality",
+      "None",
+      "Survival rate"
+    ],
+    "answer": "None"
+  }, {
+    "question": "Lamarck's theory is a",
+    "choices":[
+      "Theory of evolution",
+      "Modern Theories of evolution",
+      "None",
+      "I don't Know"
+    ],
+    "answer": "Theory of evolution"
+  }, {
+    "question": "The arteries transport blood to the heart",
+    "choices":[
+      "True",
+      "False"
+    ],
+    "answer": "False"
+  } , {
+    "question": "Blood movement is _____ in them",
+    "choices":[
+      "slow",
+      "fast",
+      "remains constant",
+      "slightly increase"
+    ],
+    "answer": "slow"
+  }, {
+    "question": "Mammalian blood transports Oxygen because it contains",
+    "choices":[
+      "Haemoglobin",
+      "ChlorophyII",
+      "Melanin",
+      "Keratin"
+    ],
+    "answer": "Haemoglobin"
+  }, {
+    "question": "The cervical of a human vertebrae is",
+    "choices":[
+      "4",
+      "5",
+      "6",
+      "0"
+    ],
+    "answer": "4"
+  }, {
+    "question": "The thoracic vertebra in rat is",
+    "choices":[
+      "12",
+      "13",
+      "14",
+      "10"
+    ],
+    "answer": "13"
+  }, {
+    "question": "The caudal of a human is",
+    "choices":[
+      "4",
+      "16",
+      "27",
+      "30"
+    ],
+    "answer": "4"
+  }, {
+    "question": "What is the basic unit of mass?",
+    "choices":[
+      "gram",
+      "kilogram",
+      "milligram",
+      "decigram"
+    ],
+    "answer": "gram"
+  }, {
+    "question": "8 isonly divisible if",
+    "choices":[
+      "If its last 3 digits form a number divisible by 8",
+      "If its last 3 digits form a number divisible by 4",
+      "None",
+      "No idea"
+    ],
+    "answer": "If its last 3 digits form a number divisible by 8"
+  }, {
+    "question": "The speed of light is",
+    "choices":[
+      "3.0E8",
+      "2E8",
+      "3E9",
+      "None"
+    ],
+    "answer": "3.0E8"
+  }
+]
