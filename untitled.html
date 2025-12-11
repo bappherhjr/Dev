@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bappherh JR — Letter for Fatima 💕</title>
+<style>
+  :root {--bg:#ffffff;--text:#111;--card:#f4f4f4;--accent:#ff6781;}
+  body.dark {--bg:#0f0f0f;--text:#f1f1f1;--card:#1b1b1b;--accent:#ff90a0;}
+  body{margin:0;font-family:"Poppins",sans-serif;background:var(--bg);color:var(--text);transition:0.3s;overflow-x:hidden;cursor:none;}
+  header{text-align:center;margin-top:40px;animation:glow 2s ease-in-out infinite alternate;cursor:pointer;}
+  @keyframes glow{0%{text-shadow:0 0 10px var(--accent);}100%{text-shadow:0 0 25px var(--accent);}}
+  .title{font-size:2rem;font-weight:700;}
+  .subtitle{opacity:0.7;cursor:pointer;}
+  .card,.memory-box{width:90%;max-width:600px;background:var(--card);padding:20px;margin:20px auto;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,0.12);line-height:1.6;transition:0.3s,transform 0.6s,opacity 0.6s;opacity:0;transform:translateY(30px);}
+  .show{opacity:1;transform:translateY(0);}
+  .theme-toggle{text-align:center;margin-top:15px;}
+  .theme-toggle button{padding:8px 18px;background:var(--accent);border:none;color:white;border-radius:8px;cursor:pointer;transition:0.3s;}
+  .theme-toggle button:hover{transform:scale(1.05);}
+  footer{text-align:center;margin:40px 0;opacity:0.5;}
+  #letterText{border-right:3px solid var(--accent);white-space:pre-wrap;overflow:hidden;display:none;}
+  .glow {animation: glowing 2s ease-in-out infinite alternate;}
+  @keyframes glowing{0%{text-shadow:0 0 5px var(--accent);}50%{text-shadow:0 0 15px var(--accent);}100%{text-shadow:0 0 25px var(--accent);}}
+  #unlockBtn{padding:10px 18px;background:var(--accent);border:none;color:white;border-radius:10px;cursor:pointer;transition:0.3s;margin-top:15px;}
+  #unlockBtn:hover{transform:scale(1.05);}
+  .memory-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:15px;}
+  .memory-item{background:var(--card);padding:15px;border-radius:15px;box-shadow:0 6px 20px rgba(0,0,0,0.1);cursor:pointer;transition:0.3s;display:flex;align-items:center;justify-content:center;font-weight:500;text-align:center;position:relative;}
+  .memory-item:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+  #memoryText{margin-top:15px;font-style:italic;text-align:center;}
+  .confetti{position:fixed;top:-30px;pointer-events:none;animation:confettiFall linear forwards;}
+  @keyframes confettiFall{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);opacity:0;}}
+  .cursor{position:fixed;width:20px;height:20px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode: difference;background:red;z-index:9999;}
+  .floating{position:fixed;font-size:16px;pointer-events:none;animation:floatUp linear forwards;}
+  @keyframes floatUp{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}}
+  @media(max-width:500px){.title{font-size:1.6rem;}.card,.memory-box{padding:15px;}}
+</style>
+</head>
+<body>
+
+<div class="theme-toggle">
+  <button id="toggleTheme">🌙 Dark / Light ☀️</button>
+</div>
+
+<header>
+  <h1 class="title">A Secret Letter for Fatima</h1>
+  <p class="subtitle" id="easterEgg">From Bappherh JR</p>
+</header>
+
+<section class="card">
+  <h2>💌 My Letter</h2>
+  <button id="unlockBtn">Click to Unlock ❤️</button>
+  <p id="letterText" class="glow"></p>
+</section>
+
+<section class="memory-box card">
+  <h2>🗺️ Memory Map (Click a memory)</h2>
+  <div class="memory-container">
+    <div class="memory-item" data-text="📍 Monday: The first time I ever saw you.">Memory 1</div>
+    <div class="memory-item" data-text="📍 Same day: I learned your name — Fatima — for the first time.">Memory 2</div>
+    <div class="memory-item" data-text="📍 Your vibe: Friendly, social, always laughing with your friends.">Memory 3</div>
+    <div class="memory-item" data-text="📍 Playfulness: Your laughter is cutest thing.">Memory 4</div>
+    <div class="memory-item" data-text="📍 Today: You laughed when I laughed — tiny connection.">Memory 5</div>
+  </div>
+  <p id="memoryText"></p>
+</section>
+
+<footer>
+  <p>Made with ❤️ by Bappherh JR</p>
+</footer>
+
+<audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" loop autoplay></audio>
+
+<div class="cursor" id="customCursor"></div>
+
+<script>
+  // Dark / Light Mode
+  const btn=document.getElementById("toggleTheme");
+  if(localStorage.getItem("theme")==="dark") document.body.classList.add("dark");
+  btn.addEventListener("click",()=>{document.body.classList.toggle("dark");localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");});
+
+  // Typewriter + emojis in letter
+  const text=`Dear Fatima,
+
+From the very first day I saw you — that Monday — something just clicked inside me.
+The way you were with your friends, the way you laughed… even the moment you laughed
+when I laughed today, it felt like the world paused for a second.
+
+You're playful, friendly, soft-hearted, and honestly, you brighten the whole place
+without even trying. I don’t know everything about you yet, but I know you’ve already
+made my days feel lighter.
+
+— Bappherh JR`;
+  const letterText=document.getElementById("letterText");
+  let i=0;
+  let confettiFollow = false;
+
+  function typeWriter(){
+    if(i<text.length){
+      letterText.innerHTML+=text.charAt(i);
+      if(Math.random()<0.08){
+        createFloatingEmoji();
+      }
+      i++;
+      setTimeout(typeWriter,40);
+    } else { confettiFollow=false; letterText.classList.add("pulseGlow"); }
+  }
+
+  // Unlock button with confetti rain
+  const unlockBtn=document.getElementById("unlockBtn");
+  unlockBtn.addEventListener("click",()=>{
+    unlockBtn.style.display="none";
+    letterText.style.display="block";
+    typeWriter();
+    launchConfetti(80);
+    confettiFollow=true;
+  });
+
+  // Floating hearts
+  setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.classList.add("floating");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+10)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+  },700);
+
+  // Memory Map Click + Confetti
+  const memoryItems=document.querySelectorAll(".memory-item");
+  const memoryText=document.getElementById("memoryText");
+  memoryItems.forEach(item=>{
+    item.addEventListener("click",()=>{
+      memoryText.innerText=item.dataset.text;
+      item.classList.add("show");
+      launchConfettiFromElement(item,25);
+    });
+  });
+
+  // Scroll reveal
+  const revealElements=document.querySelectorAll(".card");
+  window.addEventListener("scroll",()=>{revealElements.forEach(el=>{const top=el.getBoundingClientRect().top;if(top<window.innerHeight-50) el.classList.add("show");});});
+  revealElements.forEach(el=>el.classList.add("show"));
+
+  // Confetti hearts explosion
+  function launchConfetti(count){
+    const emojis=["💖","💕","💘","💝","😍","✨"];
+    for(let j=0;j<count;j++){
+      let c=document.createElement("div");
+      c.classList.add("confetti");
+      c.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+      c.style.left=Math.random()*100+"vw";
+      c.style.fontSize=(Math.random()*25+10)+"px";
+      c.style.animationDuration=(Math.random()*2+3)+"s";
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),4000);
+    }
+  }
+
+  // Confetti from element
+  function launchConfettiFromElement(el,count){
+    const rect=el.getBoundingClientRect();
+    const emojis=["💖","💕","💘","💝","😍","✨"];
+    for(let j=0;j<count;j++){
+      let c=document.createElement("div");
+      c.classList.add("confetti");
+      c.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+      c.style.left=(rect.left + Math.random()*rect.width)+"px";
+      c.style.top=(rect.top + Math.random()*rect.height)+"px";
+      c.style.fontSize=(Math.random()*20+10)+"px";
+      c.style.animationDuration=(Math.random()*2+3)+"s";
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),4000);
+    }
+  }
+
+  // Emoji floating in letter
+  function createFloatingEmoji(){
+    let e=document.createElement("div");
+    e.className="floating";
+    const emojis=["💖","✨","💘","💕"];
+    e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.left=(Math.random()*80+10)+"vw";
+    e.style.top=(Math.random()*50+20)+"vh";
+    e.style.fontSize=(Math.random()*20+10)+"px";
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),2000);
+  }
+
+  // Custom cursor
+  const cursor=document.getElementById("customCursor");
+  document.addEventListener("mousemove",e=>{
+    cursor.style.left=e.clientX+"px";
+    cursor.style.top=e.clientY+"px";
+  });
+
+  // Easter Egg
+  const easterEgg=document.getElementById("easterEgg");
+  easterEgg.addEventListener("click",()=>{
+    for(let i=0;i<20;i++){createFloatingEmoji();}
+    alert("🥰 Surprise! You found my secret message!");
+  });
+
+</script>
+</body>
+</html>
